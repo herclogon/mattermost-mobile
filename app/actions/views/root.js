@@ -8,6 +8,8 @@ import {getClientConfig, getDataRetentionPolicy, getLicenseConfig} from 'matterm
 import {getPosts} from 'mattermost-redux/actions/posts';
 import {getMyTeams, getMyTeamMembers, selectTeam} from 'mattermost-redux/actions/teams';
 
+import {recordTime} from 'app/utils/segment';
+
 import {
     handleSelectChannel,
     setChannelDisplayName,
@@ -107,6 +109,15 @@ export function createPost(post) {
         }
 
         return {data: true};
+    };
+}
+
+export function recordLoadTime(screenName, category) {
+    return async (dispatch, getState) => {
+        const state = getState();
+        const {currentUserId} = state.entities.users;
+
+        recordTime(screenName, category, currentUserId);
     };
 }
 
