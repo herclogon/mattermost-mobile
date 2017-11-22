@@ -24,6 +24,7 @@ import FormattedText from 'app/components/formatted_text';
 import StatusBar from 'app/components/status_bar';
 import PushNotifications from 'app/push_notifications';
 import {GlobalStyles} from 'app/styles';
+import tracker from 'app/utils/time_tracker';
 
 import logo from 'assets/images/logo.png';
 
@@ -74,6 +75,7 @@ class Login extends PureComponent {
 
     goToLoadTeam = (expiresAt) => {
         const {intl, navigator, theme} = this.props;
+        tracker.initialLoad = Date.now();
 
         if (expiresAt) {
             PushNotifications.localNotificationSchedule({
