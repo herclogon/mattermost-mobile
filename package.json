@@ -58,7 +58,7 @@
     "shallow-equals": "1.0.0",
     "socketcluster": "9.1.1",
     "tinycolor2": "1.4.1",
-    "url-parse": "1.2.0",
+    "url-parse": "1.4.0",
     "youtube-video-id": "0.0.2"
   },
   "devDependencies": {
