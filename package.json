@@ -59,7 +59,8 @@
     "socketcluster": "9.1.1",
     "tinycolor2": "1.4.1",
     "url-parse": "1.2.0",
-    "youtube-video-id": "0.0.2"
+    "youtube-video-id": "0.0.2",
+    "snyk": "^1.83.0"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
@@ -100,11 +101,14 @@
   },
   "scripts": {
     "test": "NODE_ENV=test nyc --reporter=text mocha --exit --opts test/mocha.opts",
-    "postinstall": "make post-install"
+    "postinstall": "make post-install",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "rnpm": {
     "assets": [
       "./assets/fonts"
     ]
-  }
+  },
+  "snyk": true
 }
